@@ -22,19 +22,29 @@ public class LinkedListFunctions<T> {
 			head = node;
 			tail = node;
 		} else {
-			tail.next = node; //add node next to tail
-			tail = node; //make the node as tail
+			tail.next = node; // add node next to tail
+			tail = node; // make the node as tail
 		}
 	}
-	
+
 	void insert(T key) {
 		Node<T> node = new Node<T>(key);
-		if(head == null) {
+		if (head == null) {
 			head = node;
 			tail = node;
 		} else {
 			head.next = node;
 			node.next = tail;
+		}
+	}
+
+	public T pop() {
+		if (head != null) {
+			T popkey = head.key; //head element is stored in popkey
+			head = head.next;    //head is moved to next position
+			return popkey;
+		} else {
+			return null;
 		}
 	}
 
