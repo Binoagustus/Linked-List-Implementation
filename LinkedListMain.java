@@ -5,9 +5,10 @@ public class LinkedListMain {
 	public static void main(String[] args) {
 		LinkedListFunctions<Integer> list = new LinkedListFunctions<>();
 		list.append(56);
-		list.append(30);
 		list.append(70);
 		list.print();
+		System.out.println();
+		list.insert(30);
+		list.print();
 	}
-
 }
