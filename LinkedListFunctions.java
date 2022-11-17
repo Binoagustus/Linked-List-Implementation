@@ -26,6 +26,17 @@ public class LinkedListFunctions<T> {
 			tail = node; //make the node as tail
 		}
 	}
+	
+	void insert(T key) {
+		Node<T> node = new Node<T>(key);
+		if(head == null) {
+			head = node;
+			tail = node;
+		} else {
+			head.next = node;
+			node.next = tail;
+		}
+	}
 
 	void print() {
 		Node<T> tempNode = head;
