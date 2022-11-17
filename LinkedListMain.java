@@ -7,9 +7,9 @@ public class LinkedListMain {
 		list.append(56);
 		list.append(30);
 		list.append(70);
-		list.print();
 		System.out.println();
-		System.out.println("Popped element is " + list.popLast());
+		System.out.println("search position of 30 is "+list.search(30));
+		System.out.println();
 		list.print();
 	}
 }

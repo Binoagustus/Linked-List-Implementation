@@ -58,6 +58,17 @@ public class LinkedListFunctions<T> {
 		tempNode = tail;// make the previous node tempNode as tail
 		return popKeyLast;
 	}
+	
+	public Node<T> search(T key) {
+		Node<T> node = new Node<T>(key);//to search
+		Node<T> tempNode = head;//to traverse
+		while(tempNode != null) {
+			if(tempNode.key.equals(key)) {
+				return tempNode;
+			}
+			tempNode = tempNode.next;
+		}return null;
+	}
 
 	void print() {
 		Node<T> tempNode = head;
