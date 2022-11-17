@@ -40,12 +40,23 @@ public class LinkedListFunctions<T> {
 
 	public T pop() {
 		if (head != null) {
-			T popkey = head.key; //head element is stored in popkey
-			head = head.next;    //head is moved to next position
-			return popkey;
+			T popKey = head.key; // head element is stored in popkey
+			head = head.next; // head is moved to next position
+			return popKey;
 		} else {
 			return null;
 		}
+	}
+
+	public T popLast() {
+		Node<T> tempNode = head;
+		T popKeyLast = tail.key;
+		while (tempNode.next != tail) {
+			tempNode = tempNode.next;
+		}
+		tempNode.next = null;// last element is made null
+		tempNode = tail;// make the previous node tempNode as tail
+		return popKeyLast;
 	}
 
 	void print() {

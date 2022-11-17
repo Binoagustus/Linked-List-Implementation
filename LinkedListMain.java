@@ -9,7 +9,7 @@ public class LinkedListMain {
 		list.append(70);
 		list.print();
 		System.out.println();
-		System.out.println("Popped element is " + list.pop());
+		System.out.println("Popped element is " + list.popLast());
 		list.print();
 	}
 }
