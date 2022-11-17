@@ -7,8 +7,9 @@ public class LinkedListMain {
 		list.append(56);
 		list.append(30);
 		list.append(70);
-		System.out.println();
-		System.out.println("Element inserted link position "+ list.insertAfter(30, 40));
+		list.insertAfter(30, 40);
+		System.out.println("Element removed from link "+list.popKey(30));
+		System.out.println("List size is "+list.size());
 		System.out.println();
 		list.print();
 	}

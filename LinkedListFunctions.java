@@ -16,7 +16,7 @@ public class LinkedListFunctions<T> {
 		}
 	}
 
-	void append(T key) {
+	public void append(T key) {
 		Node<T> node = new Node<T>(key);
 		if (head == null) {
 			head = node;
@@ -58,30 +58,52 @@ public class LinkedListFunctions<T> {
 		tempNode = tail;// make the previous node tempNode as tail
 		return popKeyLast;
 	}
-	
+
+	public Node<T> popKey(T key) {
+		Node<T> searchNode;
+		searchNode = this.search(key); // holds position of the key
+		Node<T> tempNode = head;
+		while (tempNode.next != searchNode) {
+			tempNode = tempNode.next;
+		}
+		tempNode.next = searchNode.next;// assign link between two nodes after pop
+		return tempNode.next;
+	}
+
 	public Node<T> search(T key) {
-		Node<T> node = new Node<T>(key);//to search
-		Node<T> tempNode = head;//to traverse
-		while(tempNode != null) {
-			if(tempNode.key.equals(key)) {
+		Node<T> node = new Node<T>(key);// to search
+		Node<T> tempNode = head;// to traverse
+		while (tempNode != null) {
+			if (tempNode.key.equals(key)) {
 				return tempNode;
 			}
 			tempNode = tempNode.next;
-		}return null;
+		}
+		return null;
 	}
-	
-	public Node<T> insertAfter(T searchKey, T insertKey){
-        Node<T> node = new Node<>(insertKey);
-        Node<T> searchNode = this.search(searchKey);
-        if(searchNode != null){
-            node.next = searchNode.next;
-            searchNode.next = node;
-            return node.next;
-        }
-        return node.next;
-    }
 
-	void print() {
+	public Node<T> insertAfter(T searchKey, T insertKey) {
+		Node<T> node = new Node<>(insertKey);
+		Node<T> searchNode = this.search(searchKey);
+		if (searchNode != null) {
+			node.next = searchNode.next;
+			searchNode.next = node;
+			return node.next;
+		}
+		return node.next;
+	}
+
+	public int size() {
+		int count = 0;
+		Node<T> tempNode = head;
+		while (tempNode != null) {
+			tempNode = tempNode.next;
+			count = count + 1;
+		}
+		return count;
+	}
+
+	public void print() {
 		Node<T> tempNode = head;
 		while (tempNode != null) {
 			System.out.print(tempNode.key + " ");
