@@ -69,6 +69,17 @@ public class LinkedListFunctions<T> {
 			tempNode = tempNode.next;
 		}return null;
 	}
+	
+	public Node<T> insertAfter(T searchKey, T insertKey){
+        Node<T> node = new Node<>(insertKey);
+        Node<T> searchNode = this.search(searchKey);
+        if(searchNode != null){
+            node.next = searchNode.next;
+            searchNode.next = node;
+            return node.next;
+        }
+        return node.next;
+    }
 
 	void print() {
 		Node<T> tempNode = head;
